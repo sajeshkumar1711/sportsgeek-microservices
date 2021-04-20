@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sportsgeekdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+zuul:
+  ignored-services: "*"
+  routes:
+#    profile-service:
+#      path: /profile-service/**
+#      location: http://localhost:8081
+    contestonplayer-service:
+      path: /contestonplayer-service/**
+      location: http://localhost:8082
+    utils-service:
+      path: /utilities-service/**
+      location: http://localhost:8083
+    matches-service:
+      path: /matches-service/**
+      location: http://localhost:8084
+    players-service:
+      path: /players-service/**
+      localtion: http://localhost:8085
+
